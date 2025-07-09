@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for Inter font and smooth scrolling */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            /* Hide scrollbar for a cleaner look, but allow scrolling */
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        body::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera*/
+        }
+        .section-padding {
+            padding: 4rem 1rem; /* Default padding for sections */
+        }
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 6rem 2rem; /* Larger padding for medium screens and up */
+            }
+        }
+        @media (min-width: 1024px) {
+            .section-padding {
+                padding: 8rem 4rem; /* Even larger padding for large screens and up */
+            }
+        }
+
+        /* Custom animation for hero text */
+        @keyframes fadeInMoveUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fadeInMoveUp {
+            animation: fadeInMoveUp 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-white bg-opacity-95 shadow-lg z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-indigo-600 rounded-lg p-2 hover:bg-indigo-50 transition duration-300">Your Name</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300 rounded-lg px-3 py-2 hover:bg-gray-100">About</a>
+                <a href="#skills" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300 rounded-lg px-3 py-2 hover:bg-gray-100">Skills</a>
+                <a href="#projects" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300 rounded-lg px-3 py-2 hover:bg-gray-100">Projects</a>
+                <a href="#contact" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300 rounded-lg px-3 py-2 hover:bg-gray-100">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 shadow-inner">
+            <a href="#about" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition duration-300">About</a>
+            <a href="#skills" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition duration-300">Skills</a>
+            <a href="#projects" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition duration-300">Projects</a>
+            <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition duration-300">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-gradient-to-br from-indigo-500 to-purple-600 text-white min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
+        <div class="absolute inset-0 z-0 opacity-10">
+            <!-- Background pattern/shapes for visual interest -->
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" fill="currentColor">
+                <defs>
+                    <pattern id="pattern-circles" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
+                        <circle id="pattern-circle" cx="5" cy="5" r="1.5" fill="rgba(255,255,255,0.1)"></circle>
+                    </pattern>
+                </defs>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
+            </svg>
+        </div>
+        <div class="container mx-auto text-center z-10 px-4">
+            <img src="https://placehold.co/160x160/6366F1/FFFFFF?text=JP" alt="Your Profile Picture" class="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-white shadow-lg object-cover animate-fadeInMoveUp" style="animation-delay: 0.2s;">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight animate-fadeInMoveUp" style="animation-delay: 0.4s;">Hi, I'm <span class="text-yellow-300">John Doe</span></h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fadeInMoveUp" style="animation-delay: 0.6s;">A passionate <span class="font-semibold">Software Developer</span> focused on building impactful web applications.</p>
+            <a href="#projects" class="inline-flex items-center px-8 py-4 bg-white text-indigo-600 font-bold text-lg rounded-full shadow-lg hover:bg-gray-100 transform hover:scale-105 transition duration-300 ease-in-out animate-fadeInMoveUp" style="animation-delay: 0.8s;">
+                View My Work
+                <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" class="section-padding bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12 relative pb-4">
+                About Me
+                <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-indigo-500 rounded-full"></span>
+            </h2>
+            <div class="flex flex-col md:flex-row items-center md:space-x-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="https://placehold.co/400x300/E0E7FF/4F46E5?text=About+Image" alt="About Me" class="w-full h-auto rounded-xl shadow-xl object-cover">
+                </div>
+                <div class="md:w-1/2 text-lg text-gray-700 leading-relaxed">
+                    <p class="mb-4">Hello! I'm John Doe, a dedicated software developer with 5 years of experience in creating robust and scalable web solutions. My journey in tech began with a curiosity for how things work, which quickly evolved into a passion for building them.</p>
+                    <p class="mb-4">I specialize in front-end development, with a strong foundation in modern JavaScript frameworks like React and Vue.js. I also have experience with back-end technologies such as Node.js and Python, enabling me to work on full-stack projects.</p>
+                    <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good book. I'm always eager to learn and grow, and I thrive in collaborative environments where I can make a real impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding bg-gray-100">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12 relative pb-4">
+                My Skills
+                <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-indigo-500 rounded-full"></span>
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill Card 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 ease-in-out border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="code" class="text-indigo-500 w-8 h-8 mr-4"></i>
+                        <h3 class="text-2xl font-semibold text-gray-900">Front-End Development</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">Proficient in building responsive and dynamic user interfaces.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>React, Vue.js, Angular</li>
+                        <li>HTML5, CSS3, JavaScript (ES6+)</li>
+                        <li>Tailwind CSS, Bootstrap, SASS</li>
+                    </ul>
+                </div>
+                <!-- Skill Card 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 ease-in-out border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="server" class="text-green-500 w-8 h-8 mr-4"></i>
+                        <h3 class="text-2xl font-semibold text-gray-900">Back-End Development</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">Experienced in developing robust server-side applications and APIs.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>Node.js, Express.js</li>
+                        <li>Python, Django, Flask</li>
+                        <li>RESTful APIs, GraphQL</li>
+                    </ul>
+                </div>
+                <!-- Skill Card 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 ease-in-out border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="database" class="text-blue-500 w-8 h-8 mr-4"></i>
+                        <h3 class="text-2xl font-semibold text-gray-900">Databases & DevOps</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">Skilled in database management and deployment practices.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>MongoDB, PostgreSQL, MySQL</li>
+                        <li>Git, GitHub, Docker</li>
+                        <li>AWS, Netlify, Vercel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12 relative pb-4">
+                My Projects
+                <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-indigo-500 rounded-full"></span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Project Card 1 -->
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden border border-gray-200 transform hover:scale-[1.02] transition duration-300 ease-in-out">
+                    <img src="https://placehold.co/600x400/D1D5DB/1F2937?text=Project+1" alt="Project 1" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">E-commerce Platform</h3>
+                        <p class="text-gray-700 mb-4">A full-stack e-commerce application built with React, Node.js, and MongoDB, featuring user authentication, product management, and payment integration.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">React</span>
+                            <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Node.js</span>
+                            <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">MongoDB</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" target="_blank" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium transition duration-300">
+                                <i data-lucide="external-link" class="w-5 h-5 mr-1"></i> Live Demo
+                            </a>
+                            <a href="#" target="_blank" class="inline-flex items-center text-gray-600 hover:text-gray-800 font-medium transition duration-300">
+                                <i data-lucide="github" class="w-5 h-5 mr-1"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden border border-gray-200 transform hover:scale-[1.02] transition duration-300 ease-in-out">
+                    <img src="https://placehold.co/600x400/D1D5DB/1F2937?text=Project+2" alt="Project 2" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Task Management App</h3>
+                        <p class="text-gray-700 mb-4">A responsive task management application with drag-and-drop functionality, real-time updates, and user collaboration features.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">Vue.js</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full">Firebase</span>
+                            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full">Tailwind CSS</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" target="_blank" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium transition duration-300">
+                                <i data-lucide="external-link" class="w-5 h-5 mr-1"></i> Live Demo
+                            </a>
+                            <a href="#" target="_blank" class="inline-flex items-center text-gray-600 hover:text-gray-800 font-medium transition duration-300">
+                                <i data-lucide="github" class="w-5 h-5 mr-1"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden border border-gray-200 transform hover:scale-[1.02] transition duration-300 ease-in-out">
+                    <img src="https://placehold.co/600x400/D1D5DB/1F2937?text=Project+3" alt="Project 3" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">Blog Content Platform</h3>
+                        <p class="text-gray-700 mb-4">A platform for creating and managing blog content, with a rich text editor, category management, and search functionality.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">Django</span>
+                            <span class="bg-cyan-100 text-cyan-800 text-sm font-medium px-3 py-1 rounded-full">PostgreSQL</span>
+                            <span class="bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">HTML/CSS</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" target="_blank" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium transition duration-300">
+                                <i data-lucide="external-link" class="w-5 h-5 mr-1"></i> Live Demo
+                            </a>
+                            <a href="#" target="_blank" class="inline-flex items-center text-gray-600 hover:text-gray-800 font-medium transition duration-300">
+                                <i data-lucide="github" class="w-5 h-5 mr-1"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-gray-800 text-white">
+        <div class="container mx-auto max-w-3xl text-center">
+            <h2 class="text-4xl font-bold mb-12 relative pb-4">
+                Get In Touch
+                <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-indigo-400 rounded-full"></span>
+            </h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12">
+                <a href="mailto:your.email@example.com" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out flex items-center">
+                    <i data-lucide="mail" class="w-5 h-5 mr-2"></i> Email Me
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out flex items-center">
+                    <i data-lucide="linkedin" class="w-5 h-5 mr-2"></i> LinkedIn
+                </a>
+                <a href="https://github.com/yourusername" target="_blank" class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out flex items-center">
+                    <i data-lucide="github" class="w-5 h-5 mr-2"></i> GitHub
+                </a>
+            </div>
+
+            <p class="text-gray-400 text-sm">&copy; 2024 John Doe. All rights reserved.</p>
+        </div>
+    </section>
+
+    <!-- JavaScript for Mobile Menu and Lucide Icons -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
