@@ -1,1 +1,338 @@
-Create a Business Landing Page HTML website, i will upload on github and the webside photo code was img
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Company Name - Professional Business Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+        }
+        /* Custom styles for hero section background image */
+        .hero-bg {
+            background-image: url('https://placehold.co/1920x1080/4a90e2/ffffff?text=Business+Success'); /* Professional blue-themed background */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        /* Style for the image placeholder, ensuring rounded corners and shadows */
+        .img-placeholder {
+            width: 100%;
+            height: auto;
+            max-width: 600px; /* Example max width for images */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            object-fit: cover; /* Ensures image covers the area without distortion */
+        }
+
+        /* Mobile menu overlay styles */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 40; /* Below the actual menu */
+            display: none; /* Hidden by default */
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%; /* Start off-screen */
+            width: 70%;
+            max-width: 300px;
+            height: 100%;
+            background-color: white;
+            z-index: 50;
+            transition: right 0.3s ease-in-out;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu.open {
+            right: 0; /* Slide in */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm py-4">
+        <nav class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600 rounded-md p-2 hover:bg-blue-50 transition duration-300">YourCompany</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#services" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300 rounded-md p-2 hover:bg-gray-100">Services</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300 rounded-md p-2 hover:bg-gray-100">About Us</a>
+                <a href="#portfolio" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300 rounded-md p-2 hover:bg-gray-100">Portfolio</a>
+                <a href="#products" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300 rounded-md p-2 hover:bg-gray-100">Products</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium transition duration-300 rounded-md p-2 hover:bg-gray-100">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu Sidebar -->
+    <div id="mobile-menu" class="mobile-menu">
+        <button id="close-mobile-menu" class="self-end text-gray-600 hover:text-gray-900 focus:outline-none mb-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <a href="#services" class="block text-gray-800 hover:text-blue-600 font-medium py-3 border-b border-gray-100" onclick="closeMobileMenu()">Services</a>
+        <a href="#about" class="block text-gray-800 hover:text-blue-600 font-medium py-3 border-b border-gray-100" onclick="closeMobileMenu()">About Us</a>
+        <a href="#portfolio" class="block text-gray-800 hover:text-blue-600 font-medium py-3 border-b border-gray-100" onclick="closeMobileMenu()">Portfolio</a>
+        <a href="#products" class="block text-gray-800 hover:text-blue-600 font-medium py-3 border-b border-gray-100" onclick="closeMobileMenu()">Products</a>
+        <a href="#contact" class="block text-gray-800 hover:text-blue-600 font-medium py-3" onclick="closeMobileMenu()">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-bg py-20 md:py-32 text-white text-center rounded-b-xl shadow-lg">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg">
+                Empowering Your Business for Growth
+            </h1>
+            <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto drop-shadow-md">
+                We provide strategic consulting and innovative solutions to drive your success.
+            </p>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                Get a Free Consultation
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">Our Expert Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-blue-600 mb-4">
+                        <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h4l2-2m0-2l3-3m-3-3H9m10 0a2 2 0 100-4 2 2 0 000 4zm-11 0a2 2 0 100-4 2 2 0 000 4zm7-6a2 2 0 100-4 2 2 0 000 4z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3 text-center">Strategic Consulting</h3>
+                    <p class="text-gray-600 text-center">Unlock your business's full potential with our expert strategic guidance and market analysis.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-blue-600 mb-4">
+                        <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3 text-center">Digital Transformation</h3>
+                    <p class="text-gray-600 text-center">Modernize your operations and enhance customer experience with cutting-edge digital solutions.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <div class="text-blue-600 mb-4">
+                        <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3 text-center">Performance Marketing</h3>
+                    <p class="text-gray-600 text-center">Maximize your ROI with data-driven marketing strategies and targeted campaigns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <!-- Placeholder for your About Us image -->
+                <img src="https://placehold.co/600x400/667eea/ffffff?text=Our+Team" alt="Our Team" class="img-placeholder">
+            </div>
+            <div class="md:w-1/2 text-center md:text-left">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">About Our Company</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    At YourCompany, we are dedicated to helping businesses achieve their full potential. Founded in [Year], our mission is to deliver exceptional value through strategic insights and innovative solutions. We pride ourselves on our client-centric approach and commitment to excellence.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Our team comprises seasoned professionals with diverse expertise in [mention 2-3 key areas, e.g., business strategy, technology, marketing]. We work collaboratively with our clients to understand their unique challenges and develop tailored strategies for sustainable growth.
+                </p>
+                <a href="#contact" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                    Meet Our Team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">Our Recent Work</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x250/81c784/ffffff?text=Project+Alpha" alt="Project Alpha" class="img-placeholder mb-4">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Project Alpha</h3>
+                    <p class="text-gray-600">A comprehensive digital transformation for a leading e-commerce brand.</p>
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x250/ffb74d/ffffff?text=Project+Beta" alt="Project Beta" class="img-placeholder mb-4">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Project Beta</h3>
+                    <p class="text-gray-600">Developed a scalable cloud infrastructure for a growing SaaS startup.</p>
+                </div>
+                <!-- Project 3 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x250/b39ddb/ffffff?text=Project+Gamma" alt="Project Gamma" class="img-placeholder mb-4">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Project Gamma</h3>
+                    <p class="text-gray-600">Implemented a targeted marketing campaign resulting in 30% lead increase.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase Section -->
+    <section id="products" class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">Our Product Showcase</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product Slot 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x300/e0e7ff/4a90e2?text=Product+A" alt="Product A" class="img-placeholder mb-4">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Product A: Innovative Software</h3>
+                    <p class="text-gray-600 mb-4">A cutting-edge software solution designed to streamline your workflow and boost productivity.</p>
+                    <a href="#" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full text-sm shadow-md transition duration-300">View Details</a>
+                </div>
+                <!-- Product Slot 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x300/c3dafe/4a90e2?text=Product+B" alt="Product B" class="img-placeholder mb-4">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Product B: Smart Hardware</h3>
+                    <p class="text-gray-600 mb-4">Robust and reliable hardware engineered for seamless integration and superior performance.</p>
+                    <a href="#" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full text-sm shadow-md transition duration-300">View Details</a>
+                </div>
+                <!-- Product Slot 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x300/a7c9ff/4a90e2?text=Product+C" alt="Product C" class="img-placeholder mb-4">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Product C: Digital Service Package</h3>
+                    <p class="text-gray-600 mb-4">Comprehensive digital service packages tailored to meet your specific business needs.</p>
+                    <a href="#" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full text-sm shadow-md transition duration-300">View Details</a>
+                </div>
+                <!-- You can add more product slots here following the same structure -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x300/8cbbff/4a90e2?text=Product+D" alt="Product D" class="img-placeholder mb-4">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Product D: Advanced Analytics</h3>
+                    <p class="text-gray-600 mb-4">Gain deep insights into your data with our powerful and intuitive analytics platform.</p>
+                    <a href="#" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full text-sm shadow-md transition duration-300">View Details</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x300/70aaff/4a90e2?text=Product+E" alt="Product E" class="img-placeholder mb-4">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Product E: Secure Cloud Storage</h3>
+                    <p class="text-gray-600 mb-4">Reliable and secure cloud storage solutions to protect your valuable business data.</p>
+                    <a href="#" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full text-sm shadow-md transition duration-300">View Details</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <img src="https://placehold.co/400x300/549bff/4a90e2?text=Product+F" alt="Product F" class="img-placeholder mb-4">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Product F: Custom Web Development</h3>
+                    <p class="text-gray-600 mb-4">Tailored web development services to build a strong and engaging online presence.</p>
+                    <a href="#" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full text-sm shadow-md transition duration-300">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-16 md:py-24 bg-blue-600 text-white text-center rounded-t-xl shadow-lg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Elevate Your Business?</h2>
+            <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                Let's discuss how our expertise can drive your next big success.
+            </p>
+            <a href="#contact" class="bg-white hover:bg-gray-100 text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                Schedule a Call
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">Get in Touch</h2>
+            <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <form>
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200" placeholder="Your Name">
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200" placeholder="your.email@example.com">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="6" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200" placeholder="Your message..."></textarea>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="text-center mt-12 text-gray-700">
+                <p><strong>Email:</strong> info@yourcompany.com</p>
+                <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+                <p><strong>Address:</strong> 789 Corporate Blvd, Suite 300, Business City, CA, 90210</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 rounded-t-xl shadow-inner">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 YourCompany. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('open');
+            mobileMenuOverlay.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            mobileMenuOverlay.style.display = 'none';
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+
+        // Close mobile menu when a navigation link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(item => {
+            item.addEventListener('click', closeMobileMenu);
+        });
+    </script>
+
+</body>
+</html>
